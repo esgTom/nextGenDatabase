@@ -1,14 +1,14 @@
 USE next_Gen
 GO
 
---  Uncomment to reload Code table,  
 DELETE Column_Definition
 DELETE Table_Definition
 GO
 
 DECLARE @pkValue int = 0;
+DECLARE @ProjectId int = 0;  -- Run this to get a project ===> SELECT * FROM Project
 
-INSERT INTO Table_Definition(Table_Name,Created_By,Created_Date,Modified_By,Modified_Date) VALUES('Workout','DB Load', GETDATE(), 'DB Load', GETDATE())
+INSERT INTO Table_Definition(Project_Id, Table_Name,Created_By,Created_Date,Modified_By,Modified_Date) VALUES(@ProjectId, 'Workout','DB Load', GETDATE(), 'DB Load', GETDATE())
 SET @pkValue = @@IDENTITY;
 
 INSERT INTO Column_Definition(
@@ -29,7 +29,7 @@ INSERT INTO Column_Definition(
 
 		
 
-INSERT INTO Table_Definition(Table_Name,Created_By,Created_Date,Modified_By,Modified_Date) VALUES('Schedule','DB Load', GETDATE(), 'DB Load', GETDATE())
+INSERT INTO Table_Definition(Project_Id, Table_Name,Created_By,Created_Date,Modified_By,Modified_Date) VALUES(@ProjectId,'Schedule','DB Load', GETDATE(), 'DB Load', GETDATE())
 SET @pkValue = @@IDENTITY;
 
 INSERT INTO Column_Definition(
