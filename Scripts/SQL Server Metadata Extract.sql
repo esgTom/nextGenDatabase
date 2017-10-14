@@ -1,6 +1,6 @@
 SET NOCOUNT ON
 
-DECLARE @Table varchar(50) = 'Workout'
+DECLARE @Table varchar(50) = 'Project'
 
 SELECT  c.TABLE_NAME,
 		c.COLUMN_NAME,
